@@ -6516,9 +6516,20 @@ bool Unit::HandleDummyAuraProc (Unit *pVictim, uint32 damage, AuraEffect* trigge
         break;
     }
     case SPELLFAMILY_DRUID:
-    {
-        switch (dummySpell->Id)
+    switch (dummySpell->Id)
         {
+                // Natures Ward
+                case 33881:
+                case 33882:
+                {
+                    if (HealthAbovePct(50))
+                        return false;
+
+                    CastSpell(this, 45281, true);
+                    CastSpell(this, 774, true);
+                    break;
+                }
+		    {
         // Glyph of Innervate
         case 54832:
         {
@@ -18880,3 +18891,4 @@ void Unit::ResetHealingDoneInPastSecs (uint32 secs)
         m_heal_done[i] = 0;
 }
 ;
+case SPELLFAMILY_DRUID:
