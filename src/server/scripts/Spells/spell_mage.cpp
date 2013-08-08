@@ -41,6 +41,43 @@ enum MageSpells
     SPELL_MAGE_SUMMON_WATER_ELEMENTAL_TEMPORARY  = 70907,
     SPELL_MAGE_GLYPH_OF_BLAST_WAVE               = 62126
 };
+class spell_mage_icy_veins_cast: public SpellScriptLoader 
+{
+public:
+ spell_mage_icy_veins_cast() : SpellScriptLoader("spell_mage_icy_veins_cast") 
+    { }
+
+ class spell_mage_icy_veins_cast_SpellScript: public SpellScript 
+{
+  PrepareSpellScript(spell_mage_icy_veins_cast_SpellScript)
+	void HandleDummy(SpellEffIndex /*effIndex*/)
+	{
+		uint64 guid = GetCaster()->GetGUID();
+
+		if (Unit *unitTarget = GetHitUnit())
+			{
+                // (Glyph of Icy Veins)
+                if (GetCaster()->HasAura(56374))
+                {
+					GetCaster()->RemoveAurasByType(SPELL_AURA_HASTE_SPELLS, guid, 0, true, false);
+					GetCaster()->RemoveAurasByType(SPELL_AURA_MOD_DECREASE_SPEED);
+                }
+            }
+
+	}
+
+	void Register()
+	{
+		OnEffect += SpellEffectFn(spell_mage_icy_veins_cast_SpellScript::HandleDummy, EFFECT_0, SPELL_EFFECT_APPLY_AURA);
+	}
+ };
+
+ SpellScript* GetSpellScript() const 
+    {
+  return new spell_mage_icy_veins_cast_SpellScript();
+ }
+};
+
 
 class spell_mage_cold_snap : public SpellScriptLoader
 {
@@ -327,6 +364,7 @@ class  spell_mage_pyroblast : public SpellScriptLoader
 
 void AddSC_mage_spell_scripts()
 {
+	new spell_mage_icy_veins_cast();
     new spell_mage_cold_snap();
     new spell_mage_frost_warding_trigger();
     new spell_mage_incanters_absorbtion_absorb();
