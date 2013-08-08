@@ -1,4 +1,11 @@
-This is the SpellToDo list. The spells, talents etc which will be in top will be focused on first, the spells which is down the list will be focused on later in.
+This is the SpellToDo list. 
 There will not come spell damage buffs yet, but there might come later in.
+- Remember to report broken spells etc at the issue tracker.
 
-None atm, report broken spells etc at the issue tracker.
+Glyph of silencing shot (Important - Most fix, causes big bug.) http://cata.openwow.com/item=42910 
+Pillar of Frost, currently not giving any strength (Possibly DB fix) http://www.wowhead.com/spell=51271/pillar-of-frost
+Twisted Faith, currently Spirit is not counting towards hit. 
+Glyph of Dispel Magic, Only dispelling and not healing. (Supposed to heal 3%) http://cata.openwow.com/item=42397
+Sanctity of Battle, Should lower the cd on Crusader Strike and Devine Storm from haste effects (Atm doing nothing) http://www.wowhead.com/spell=25956/sanctity-of-battle
+
+More will be added soon.
