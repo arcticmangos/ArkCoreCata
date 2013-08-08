@@ -1,0 +1,4 @@
+This is the SpellToDo list. The spells, talents etc which will be in top will be focused on first, the spells which is down the list will be focused on later in.
+There will not come spell damage buffs yet, but there might come later in.
+
+None atm, report broken spells etc at the issue tracker.
