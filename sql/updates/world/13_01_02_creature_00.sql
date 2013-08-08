@@ -1,1 +1,0 @@
-UPDATE creature SET spawndist = '60' WHERE id = '35660';
